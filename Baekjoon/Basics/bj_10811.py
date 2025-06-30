@@ -14,3 +14,22 @@
 #
 # 출력
 # 모든 순서를 바꾼 다음에, 가장 왼쪽에 있는 바구니부터 바구니에 적혀있는 순서를 공백으로 구분해 출력한다.
+
+#일단 2개의 값을 받고, 리스트 생성해야댐 / 몇번 input받을지 받아야댐
+#띄어쓰기 기준으로 2개 값을 나눌 수 있는 함수 있나
+a, b = map(int, input().split())
+aList = []
+for i in range(0, a):
+    aList.append(i+1)
+for i in range(b):
+    start, end = map(int, input().split())
+    bList = []
+    for j in range(end,start-1, -1):
+        bList.append(aList[j-1])
+    c = 0;
+    for j in range(start-1, end):
+        aList[j] = bList[c]
+        c += 1
+
+for i in range(a):
+    print(aList[i], end=" ")
